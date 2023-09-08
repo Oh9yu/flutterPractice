@@ -3,8 +3,59 @@ import 'package:flutter_practice/Widget/Button.dart';
 import 'package:flutter_practice/Widget/cardui.dart';
 
 void main() {
-  runApp(App());
+  runApp(Stateapp());
 }
+
+class Stateapp extends StatefulWidget {
+  const Stateapp({super.key});
+
+  @override
+  State<Stateapp> createState() => _StateappState();
+}
+
+class _StateappState extends State<Stateapp> {
+  List<int> numberlist = [];
+  int counter = 0;
+
+  void clickHandler() {
+    setState(() {
+      counter++;
+      numberlist.add(counter);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Color(0xFFF4EDDB),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Click Count',
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500)),
+              SizedBox(height: 10),
+              Text(
+                '$counter',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              IconButton(
+                  iconSize: 40,
+                  onPressed: clickHandler,
+                  icon: Icon(Icons.add_box_rounded)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+//stateless Widget
 
 class App extends StatelessWidget {
   @override
@@ -112,34 +163,34 @@ class App extends StatelessWidget {
                         height: 20,
                       ),
                       CardUI(
-                          title: 'Euro',
-                          bgColor: Color(0xFF1F2123),
-                          cost: '6 428',
-                          loc: 'EUR',
-                          titleColor: Colors.white,
-                          locColor: Colors.grey,
-                          icon: Icons.euro_rounded),
-                      Transform.translate(
-                        offset: Offset(0, -20),
-                        child: CardUI(
-                            title: 'Dollar',
-                            bgColor: Colors.white,
-                            cost: '55 262',
-                            loc: 'USD',
-                            titleColor: Colors.black,
-                            locColor: Colors.black,
-                            icon: Icons.attach_money_rounded),
+                        title: 'Euro',
+                        bgColor: Color(0xFF1F2123),
+                        cost: '6 428',
+                        loc: 'EUR',
+                        titleColor: Colors.white,
+                        locColor: Colors.grey,
+                        icon: Icons.euro_rounded,
+                        offset: 0,
                       ),
-                      Transform.translate(
-                        offset: Offset(0, -40),
-                        child: CardUI(
-                            title: 'Bit Coin',
-                            bgColor: Color(0xFF1F2123),
-                            cost: '320',
-                            loc: 'BTC',
-                            titleColor: Colors.white,
-                            locColor: Colors.grey,
-                            icon: Icons.currency_bitcoin_rounded),
+                      CardUI(
+                        title: 'Dollar',
+                        bgColor: Colors.white,
+                        cost: '55 262',
+                        loc: 'USD',
+                        titleColor: Colors.black,
+                        locColor: Colors.black,
+                        icon: Icons.attach_money_rounded,
+                        offset: 20,
+                      ),
+                      CardUI(
+                        title: 'Bit Coin',
+                        bgColor: Color(0xFF1F2123),
+                        cost: '320',
+                        loc: 'BTC',
+                        titleColor: Colors.white,
+                        locColor: Colors.grey,
+                        icon: Icons.currency_bitcoin_rounded,
+                        offset: 40,
                       )
                     ],
                   ),
