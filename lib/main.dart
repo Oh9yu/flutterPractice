@@ -14,44 +14,71 @@ class Stateapp extends StatefulWidget {
 }
 
 class _StateappState extends State<Stateapp> {
-  List<int> numberlist = [];
-  int counter = 0;
+  bool isShowTitle = true;
 
-  void clickHandler() {
+  void titleHandler() {
     setState(() {
-      counter++;
-      numberlist.add(counter);
+      isShowTitle = !isShowTitle;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        textTheme: TextTheme(
+          titleLarge: TextStyle(color: Colors.red),
+        ),
+      ),
       home: Scaffold(
         backgroundColor: Color(0xFFF4EDDB),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Click Count',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500)),
-              SizedBox(height: 10),
-              Text(
-                '$counter',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
-              ),
-              SizedBox(
-                height: 20,
-              ),
+              isShowTitle ? LargeTitle() : Text('empty!!'),
               IconButton(
-                  iconSize: 40,
-                  onPressed: clickHandler,
-                  icon: Icon(Icons.add_box_rounded)),
+                  onPressed: titleHandler,
+                  icon: Icon(Icons.access_alarm_rounded)),
             ],
           ),
         ),
       ),
     );
+  }
+}
+
+class LargeTitle extends StatefulWidget {
+  const LargeTitle({
+    super.key,
+  });
+
+  @override
+  State<LargeTitle> createState() => _LargeTitleState();
+}
+
+class _LargeTitleState extends State<LargeTitle> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print('hello!');
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    print('dispose');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Text('Title',
+        style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.w500,
+            color: Theme.of(context).textTheme.titleLarge?.color));
   }
 }
 
