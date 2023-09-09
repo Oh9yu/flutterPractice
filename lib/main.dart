@@ -1,10 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice/Widget/Button.dart';
 import 'package:flutter_practice/Widget/cardui.dart';
+import 'package:flutter_practice/screens/home_screen.dart';
 
 void main() {
-  runApp(Stateapp());
+  runApp(Pomodoro());
 }
+
+class Pomodoro extends StatelessWidget {
+  const Pomodoro({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        theme: ThemeData(
+          colorScheme: ColorScheme(
+            brightness: Brightness.light,
+            primary: Colors.blue,
+            onPrimary: Colors.black54,
+            secondary: Colors.green,
+            onSecondary: Colors.black,
+            error: Colors.red,
+            onError: Colors.white,
+            background: Color(0xFFF4EDDB),
+            onBackground: Color(0xFF232B55),
+            surface: Color.fromRGBO(210, 193, 172, 1),
+            onSurface: Colors.black,
+          ),
+          textTheme: TextTheme(
+            titleLarge: TextStyle(color: Colors.red),
+          ),
+        ),
+        home: HomeScreen());
+  }
+}
+
+//stateful Widget Practice
 
 class Stateapp extends StatefulWidget {
   const Stateapp({super.key});
@@ -82,7 +113,7 @@ class _LargeTitleState extends State<LargeTitle> {
   }
 }
 
-//stateless Widget
+//stateless Widget Practice
 
 class App extends StatelessWidget {
   @override
