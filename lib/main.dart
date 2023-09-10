@@ -2,10 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice/Widget/Button.dart';
 import 'package:flutter_practice/Widget/cardui.dart';
 import 'package:flutter_practice/screens/home_screen.dart';
+import 'package:flutter_practice/screens/webtoon_home_screen.dart';
+import 'package:flutter_practice/services/api_service.dart';
 
 void main() {
-  runApp(Pomodoro());
+  runApp(Webtoon());
 }
+
+class Webtoon extends StatelessWidget {
+  const Webtoon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        colorScheme: ColorScheme(
+          brightness: Brightness.light,
+          primary: Colors.blue,
+          onPrimary: Color(0xFFF4EDDB),
+          secondary: Colors.green,
+          onSecondary: Colors.black,
+          error: Colors.red,
+          onError: Colors.white,
+          background: Color.fromRGBO(255, 250, 234, 1),
+          onBackground: Color(0xFF232B55),
+          surface: Color.fromRGBO(210, 193, 172, 1),
+          onSurface: Colors.black,
+        ),
+        textTheme: TextTheme(
+          titleLarge: TextStyle(color: Colors.red),
+        ),
+      ),
+      home: WebtoonHome(),
+    );
+  }
+}
+
+//pomodoro App Practice
 
 class Pomodoro extends StatelessWidget {
   const Pomodoro({super.key});
