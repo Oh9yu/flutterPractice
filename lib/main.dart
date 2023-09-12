@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_practice/Widget/Button.dart';
-import 'package:flutter_practice/Widget/cardui.dart';
-import 'package:flutter_practice/screens/home_screen.dart';
 import 'package:flutter_practice/screens/webtoon_home_screen.dart';
-import 'package:flutter_practice/services/api_service.dart';
+
+import 'package:flutter_practice/widgets/Button.dart';
+import 'package:flutter_practice/widgets/cardui.dart';
+import 'package:flutter_practice/screens/home_screen.dart';
 
 void main() {
   runApp(Webtoon());
@@ -27,7 +27,7 @@ class Webtoon extends StatelessWidget {
           background: Color.fromRGBO(255, 250, 234, 1),
           onBackground: Color(0xFF232B55),
           surface: Color.fromRGBO(210, 193, 172, 1),
-          onSurface: Colors.black,
+          onSurface: Color.fromRGBO(217, 202, 178, 1),
         ),
         textTheme: TextTheme(
           titleLarge: TextStyle(color: Colors.red),
